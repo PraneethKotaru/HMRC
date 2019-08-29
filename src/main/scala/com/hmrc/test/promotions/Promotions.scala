@@ -4,20 +4,18 @@ import com.hmrc.test.products.{Apple, Product, Orange}
 
 sealed trait Promotions {
 
-  def getDiscount(products : Seq[Product]): Double
+  def getDiscount(products : List[Product]): Double
 }
 
 object ApplePromotion extends Promotions {
-  override def getDiscount(cart : Seq[Product]): Double = {
-    println("Apple " +cart.filter(_ == Apple).size / 2 * Apple.price)
+  override def getDiscount(cart : List[Product]): Double = {
     cart.filter(_ == Apple).size / 2 * Apple.price
   }
 
 }
 
 object OrangePromotion extends Promotions {
-  override def getDiscount(cart : Seq[Product]): Double ={
-    println("orange " +cart.filter(_ == Orange).size / 3 * Orange.price)
+  override def getDiscount(cart : List[Product]): Double ={
     cart.filter(_ == Orange).size / 3 * Orange.price
   }
 
